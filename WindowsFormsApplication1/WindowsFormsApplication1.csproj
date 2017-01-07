@@ -47,6 +47,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BaseSurvivorClass.cs" />
+    <Compile Include="ColonyInfoForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ColonyInfoForm.Designer.cs">
+      <DependentUpon>ColonyInfoForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="CraftingandDesign.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -71,6 +77,15 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SurvivorInfoForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SurvivorInfoForm.Designer.cs">
+      <DependentUpon>SurvivorInfoForm.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="ColonyInfoForm.resx">
+      <DependentUpon>ColonyInfoForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="CreateSurvivor.resx">
       <DependentUpon>CreateSurvivor.cs</DependentUpon>
     </EmbeddedResource>
@@ -89,6 +104,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="SurvivorInfoForm.resx">
+      <DependentUpon>SurvivorInfoForm.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

@@ -34,17 +34,56 @@ namespace WindowsFormsApplication1
 
         private static Random random = new Random();
 
+        //MENU STRIP ------------------------------------------------------------------------------------------------------------------
         private void newSimulationToolStripMenuItem_Click(object sender, EventArgs e)
         {
             newSimSetup = new NewSimSetup();
             newSimSetup.ShowDialog();
         }
 
+        private void survivor1ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            NewSimSetup.survivorInfoForm1.Show();
+        }
+
+        private void survivor2ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            NewSimSetup.survivorInfoForm2.Show();
+        }
+
+        private void survivor3ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            NewSimSetup.survivorInfoForm3.Show();
+        }
+
+        private void survivor4ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            NewSimSetup.survivorInfoForm4.Show();
+        }
+
+        private void survivor5ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            NewSimSetup.survivorInfoForm5.Show();
+        }
+
+        private void survivor6ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            NewSimSetup.survivorInfoForm6.Show();
+        }
+
+        private void colonyInformationToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            NewSimSetup.colonyInfoForm1.Show();
+        }
+
+        //MENU STRIP END --------------------------------------------------------------------------------------------
+
         private void simLogTextBox_TextChanged(object sender, EventArgs e)
         {
             simLogTextBox.SelectionStart = simLogTextBox.Text.Length;
             simLogTextBox.ScrollToCaret();
         }
+
         /// --------------TIMER--------------------------------TIMER----------------------------------------TIMER------------------------------
         
         // MUST PUT MAIN STUFF IN HERE
@@ -100,6 +139,8 @@ namespace WindowsFormsApplication1
         {
             //Environment();
             SurvivorActions();
+            //update colony info form
+            UpdateColonyInfoFormMethod();
         }
 
         // private void Environment(/*int environmentHarshness*/)
@@ -157,6 +198,7 @@ namespace WindowsFormsApplication1
                     if (isBusyLocal == false)
                     {
                         newSimSetup.craftingAndDesign1.ResearchIfEngineer(survivorOccupationLocal, survivorIntelligenceLocal, thisSurvivor);
+                        //CraftingMethod();
                         RestorGather();
                     }
                     else if (isBusyLocal == true)
@@ -164,7 +206,7 @@ namespace WindowsFormsApplication1
                         NewSimSetup.createSurvivorForm1.survivor1.busyTickDuration -= 1;
                         if (NewSimSetup.createSurvivorForm1.survivor1.busyTickDuration < 1)
                         {
-                            newSimSetup.craftingAndDesign1.DesignComplete();
+                            newSimSetup.craftingAndDesign1.DesignComplete(thisSurvivor);
                             this.simLogTextBox.Text += survivorNameLocal + " has finished drawing up the blueprint for " + NewSimSetup.createSurvivorForm1.survivor1.currentTaskString + "." + "\r\n";
                             NewSimSetup.createSurvivorForm1.survivor1.isBusy = false;
                         }
@@ -190,6 +232,7 @@ namespace WindowsFormsApplication1
                         NewSimSetup.createSurvivorForm2.survivor2.busyTickDuration -= 1;
                         if (NewSimSetup.createSurvivorForm2.survivor2.busyTickDuration < 1)
                         {
+                            newSimSetup.craftingAndDesign1.DesignComplete(thisSurvivor);
                             this.simLogTextBox.Text += survivorNameLocal + " has finished drawing up the blueprint for " + NewSimSetup.createSurvivorForm2.survivor2.currentTaskString + "." + "\r\n";
                             NewSimSetup.createSurvivorForm2.survivor2.isBusy = false;
                         }
@@ -215,6 +258,7 @@ namespace WindowsFormsApplication1
                         NewSimSetup.createSurvivorForm3.survivor3.busyTickDuration -= 1;
                         if (NewSimSetup.createSurvivorForm3.survivor3.busyTickDuration < 1)
                         {
+                            newSimSetup.craftingAndDesign1.DesignComplete(thisSurvivor);
                             this.simLogTextBox.Text += survivorNameLocal + " has finished drawing up the blueprint for " + NewSimSetup.createSurvivorForm3.survivor3.currentTaskString + "." + "\r\n";
                             NewSimSetup.createSurvivorForm3.survivor3.isBusy = false;
                         }
@@ -240,6 +284,7 @@ namespace WindowsFormsApplication1
                         NewSimSetup.createSurvivorForm4.survivor4.busyTickDuration -= 1;
                         if (NewSimSetup.createSurvivorForm4.survivor4.busyTickDuration < 1)
                         {
+                            newSimSetup.craftingAndDesign1.DesignComplete(thisSurvivor);
                             this.simLogTextBox.Text += survivorNameLocal + " has finished drawing up the blueprint for " + NewSimSetup.createSurvivorForm4.survivor4.currentTaskString + "." + "\r\n";
                             NewSimSetup.createSurvivorForm4.survivor4.isBusy = false;
                         }
@@ -265,6 +310,7 @@ namespace WindowsFormsApplication1
                         NewSimSetup.createSurvivorForm5.survivor5.busyTickDuration -= 1;
                         if (NewSimSetup.createSurvivorForm5.survivor5.busyTickDuration < 1)
                         {
+                            newSimSetup.craftingAndDesign1.DesignComplete(thisSurvivor);
                             this.simLogTextBox.Text += survivorNameLocal + " has finished drawing up the blueprint for " + NewSimSetup.createSurvivorForm5.survivor5.currentTaskString + "." + "\r\n";
                             NewSimSetup.createSurvivorForm5.survivor5.isBusy = false;
                         }
@@ -290,6 +336,7 @@ namespace WindowsFormsApplication1
                         NewSimSetup.createSurvivorForm6.survivor6.busyTickDuration -= 1;
                         if (NewSimSetup.createSurvivorForm6.survivor6.busyTickDuration < 1)
                         {
+                            newSimSetup.craftingAndDesign1.DesignComplete(thisSurvivor);
                             this.simLogTextBox.Text += survivorNameLocal + " has finished drawing up the blueprint for " + NewSimSetup.createSurvivorForm6.survivor6.currentTaskString + "." + "\r\n";
                             NewSimSetup.createSurvivorForm6.survivor6.isBusy = false;
                         }
@@ -368,7 +415,6 @@ namespace WindowsFormsApplication1
                         {
                     //wood, stone, or food?
                     string _whichResource = WhichResource();
-                    //InfoMaster.
                     this.simLogTextBox.Text += survivorNameLocal + " has successfully gathered " + _whichResource + "." + "\r\n";
                 }
                         if (gatherChance > 40)
@@ -411,105 +457,30 @@ namespace WindowsFormsApplication1
             int resourceChoice = random.Next(1, 4);
             if (resourceChoice == 1)
             {
+                NewSimSetup.infoMaster1.woodQuantity += 1;
                 return "wood";
             }
             else if (resourceChoice == 2)
             {
+                NewSimSetup.infoMaster1.stoneQuantity += 1;
                 return "stone";
             }
             else if (resourceChoice == 3)
             {
+                NewSimSetup.infoMaster1.foodQuantity += 1;
                 return "food";
             }
             else return "HOW DID WE GET HERE?";
         }
-        //**************************************************************************************************************************************
-/*
-        // RESEARCH
-        private void ResearchIfEngineer(string occupation, int intelligence, int whichSurvivor)
+
+        private void UpdateColonyInfoFormMethod()
         {
-            string _whichDesign = WhichDesign();
-            int designChance = random.Next(0, 101);
-            if (occupation == "Engineer")
-            {
-                if (intelligence <= 3)  //Tier 1
-                {
-                    if (designChance <= 20)
-                    {
-                        this.simLogTextBox.Text += survivorNameLocal + " is working on a design called " + _whichDesign + "." + "\r\n";
-                        SurvivorBusySetterMethod(whichSurvivor, busyTickDuration, _whichDesign);
-                    }
-                    else { return; }
-                }
-                else if (intelligence > 3 & intelligence <= 6)  //Tier 2
-                {
-                    if (designChance <= 35)
-                    {
-                        this.simLogTextBox.Text += survivorNameLocal + " is working on a design called " + _whichDesign + "." + "\r\n";
-                        SurvivorBusySetterMethod(whichSurvivor, busyTickDuration, _whichDesign);
-                    }
-                    else { return; }
-                }
-                else if (intelligence > 6 & intelligence <= 8)  //Tier 3
-                {
-                    if (designChance <= 45)
-                    {
-                        this.simLogTextBox.Text += survivorNameLocal + " is working on a design called " + _whichDesign + "." + "\r\n";
-                        SurvivorBusySetterMethod(whichSurvivor, busyTickDuration, _whichDesign);
-                    }
-                    else { return; }
-                }
-                else if (intelligence > 8)  //Tier 4
-                {
-                    if (designChance <= 60)
-                    {
-                        this.simLogTextBox.Text += survivorNameLocal + " is working on a design called " + _whichDesign + "." + "\r\n";
-                        SurvivorBusySetterMethod(whichSurvivor, busyTickDuration, _whichDesign);
-                    }
-                    else { return; }
-                }
-            }
+            //update colony info form
+            NewSimSetup.colonyInfoForm1.woodQuantityLabel.Text = NewSimSetup.infoMaster1.woodQuantity.ToString();
+            NewSimSetup.colonyInfoForm1.stoneQuantityLabel.Text = NewSimSetup.infoMaster1.stoneQuantity.ToString();
+            NewSimSetup.colonyInfoForm1.foodQuantityLabel.Text = NewSimSetup.infoMaster1.foodQuantity.ToString();
         }
 
-        private string WhichDesign()
-        {
-            int designChoice = random.Next(1, 4);
-            if (designChoice == 1)
-            {
-                busyTickDuration = 3;
-                return "knife";
-            }
-            else if (designChoice == 2)
-            {
-                busyTickDuration = 6;
-                return "lean-to";
-            }
-            else if (designChoice == 3)
-            {
-                busyTickDuration = 6;
-                return "fishing pole";
-            }
-            else return "HOW DID WE GET HERE?";
-        }
-
-        private void DesignComplete()
-        {
-            if (NewSimSetup.createSurvivorForm1.survivor1.currentTaskString == "knife")
-            {
-                NewSimSetup.infoMaster1.knifeDesignComplete = true;
-            }
-            else if (NewSimSetup.createSurvivorForm1.survivor1.currentTaskString == "lean-to")
-            {
-                NewSimSetup.infoMaster1.leanToDesignComplete = true;
-            }
-            else if (NewSimSetup.createSurvivorForm1.survivor1.currentTaskString == "fishing pole")
-            {
-                NewSimSetup.infoMaster1.fishingPoleDesignComplete = true;
-            }
-        }
-
-        // **************************************************************************************************************************
-        */
         //MIGHT NEED THIS IN REST OR GATHER METHOD AS WELL
         protected void SurvivorBusySetterMethod(int whichSurvivor, int tickDuration, string currentTask = "default")
         {
@@ -557,6 +528,6 @@ namespace WindowsFormsApplication1
             }
         }
 
-      
+        
     }
 }

@@ -18,11 +18,18 @@ namespace WindowsFormsApplication1
         public int foodQuantity { get; set; }
 
         // items
+        public Dictionary<string, int> itemsDict = new Dictionary<string, int>
+        {
+            {"axe", 0 },
+            {"lean-to", 0 },
+            {"fishing pole", 0 }
+        };
+
 
         //blueprint bools
         public bool allDesignComplete;
 
-        public bool knifeDesignComplete;
+        public bool axeDesignComplete;
         public bool leanToDesignComplete;
         public bool fishingPoleDesignComplete;
 

@@ -36,13 +36,23 @@
             this.mainTimer = new System.Windows.Forms.Timer(this.components);
             this.dayLabel = new System.Windows.Forms.Label();
             this.timeOfDayLabel = new System.Windows.Forms.Label();
+            this.informationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.survivorInformationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.survivor1ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.survivor2ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.survivor3ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.survivor4ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.survivor5ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.survivor6ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.colonyInformationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.fileToolStripMenuItem});
+            this.fileToolStripMenuItem,
+            this.informationToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(784, 24);
@@ -100,6 +110,84 @@
             this.timeOfDayLabel.Text = "timeOfDayLabel";
             this.timeOfDayLabel.Visible = false;
             // 
+            // informationToolStripMenuItem
+            // 
+            this.informationToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.survivorInformationToolStripMenuItem,
+            this.colonyInformationToolStripMenuItem});
+            this.informationToolStripMenuItem.Name = "informationToolStripMenuItem";
+            this.informationToolStripMenuItem.Size = new System.Drawing.Size(82, 20);
+            this.informationToolStripMenuItem.Text = "Information";
+            // 
+            // survivorInformationToolStripMenuItem
+            // 
+            this.survivorInformationToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.survivor1ToolStripMenuItem,
+            this.survivor2ToolStripMenuItem,
+            this.survivor3ToolStripMenuItem,
+            this.survivor4ToolStripMenuItem,
+            this.survivor5ToolStripMenuItem,
+            this.survivor6ToolStripMenuItem});
+            this.survivorInformationToolStripMenuItem.Name = "survivorInformationToolStripMenuItem";
+            this.survivorInformationToolStripMenuItem.Size = new System.Drawing.Size(183, 22);
+            this.survivorInformationToolStripMenuItem.Text = "Survivor Information";
+            // 
+            // survivor1ToolStripMenuItem
+            // 
+            this.survivor1ToolStripMenuItem.Name = "survivor1ToolStripMenuItem";
+            this.survivor1ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.survivor1ToolStripMenuItem.Text = "Survivor 1";
+            this.survivor1ToolStripMenuItem.Visible = false;
+            this.survivor1ToolStripMenuItem.Click += new System.EventHandler(this.survivor1ToolStripMenuItem_Click);
+            // 
+            // survivor2ToolStripMenuItem
+            // 
+            this.survivor2ToolStripMenuItem.Name = "survivor2ToolStripMenuItem";
+            this.survivor2ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.survivor2ToolStripMenuItem.Text = "Survivor 2";
+            this.survivor2ToolStripMenuItem.Visible = false;
+            this.survivor2ToolStripMenuItem.Click += new System.EventHandler(this.survivor2ToolStripMenuItem_Click);
+            // 
+            // survivor3ToolStripMenuItem
+            // 
+            this.survivor3ToolStripMenuItem.Name = "survivor3ToolStripMenuItem";
+            this.survivor3ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.survivor3ToolStripMenuItem.Text = "Survivor 3";
+            this.survivor3ToolStripMenuItem.Visible = false;
+            this.survivor3ToolStripMenuItem.Click += new System.EventHandler(this.survivor3ToolStripMenuItem_Click);
+            // 
+            // survivor4ToolStripMenuItem
+            // 
+            this.survivor4ToolStripMenuItem.Name = "survivor4ToolStripMenuItem";
+            this.survivor4ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.survivor4ToolStripMenuItem.Text = "Survivor 4";
+            this.survivor4ToolStripMenuItem.Visible = false;
+            this.survivor4ToolStripMenuItem.Click += new System.EventHandler(this.survivor4ToolStripMenuItem_Click);
+            // 
+            // survivor5ToolStripMenuItem
+            // 
+            this.survivor5ToolStripMenuItem.Name = "survivor5ToolStripMenuItem";
+            this.survivor5ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.survivor5ToolStripMenuItem.Text = "Survivor 5";
+            this.survivor5ToolStripMenuItem.Visible = false;
+            this.survivor5ToolStripMenuItem.Click += new System.EventHandler(this.survivor5ToolStripMenuItem_Click);
+            // 
+            // survivor6ToolStripMenuItem
+            // 
+            this.survivor6ToolStripMenuItem.Name = "survivor6ToolStripMenuItem";
+            this.survivor6ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.survivor6ToolStripMenuItem.Text = "Survivor 6";
+            this.survivor6ToolStripMenuItem.Visible = false;
+            this.survivor6ToolStripMenuItem.Click += new System.EventHandler(this.survivor6ToolStripMenuItem_Click);
+            // 
+            // colonyInformationToolStripMenuItem
+            // 
+            this.colonyInformationToolStripMenuItem.Enabled = false;
+            this.colonyInformationToolStripMenuItem.Name = "colonyInformationToolStripMenuItem";
+            this.colonyInformationToolStripMenuItem.Size = new System.Drawing.Size(183, 22);
+            this.colonyInformationToolStripMenuItem.Text = "Colony Information";
+            this.colonyInformationToolStripMenuItem.Click += new System.EventHandler(this.colonyInformationToolStripMenuItem_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -129,6 +217,15 @@
         private System.Windows.Forms.Label timeOfDayLabel;
         public System.Windows.Forms.ToolStripMenuItem newSimulationToolStripMenuItem;
         public System.Windows.Forms.TextBox simLogTextBox;
+        private System.Windows.Forms.ToolStripMenuItem informationToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem survivorInformationToolStripMenuItem;
+        public System.Windows.Forms.ToolStripMenuItem survivor1ToolStripMenuItem;
+        public System.Windows.Forms.ToolStripMenuItem survivor2ToolStripMenuItem;
+        public System.Windows.Forms.ToolStripMenuItem survivor3ToolStripMenuItem;
+        public System.Windows.Forms.ToolStripMenuItem survivor4ToolStripMenuItem;
+        public System.Windows.Forms.ToolStripMenuItem survivor5ToolStripMenuItem;
+        public System.Windows.Forms.ToolStripMenuItem survivor6ToolStripMenuItem;
+        public System.Windows.Forms.ToolStripMenuItem colonyInformationToolStripMenuItem;
     }
 }
 
